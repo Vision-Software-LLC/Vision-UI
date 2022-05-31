@@ -2,7 +2,7 @@
 
 ## The Library
 ```lua
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Vision-Software-LLC/Vision-UI/main/source"))
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Vision-Software-LLC/Vision-UI/main/source"))()
 ```
 
 ## Creating a Window
