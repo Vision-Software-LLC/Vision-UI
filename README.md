@@ -21,5 +21,5 @@
 [Documentation][Docs]
 
 [organization]: https://github.com/Vision-Software-LLC
-[discord]: https://discord.gg/N9NEkNqzhk
+[discord]: https://discord.gg/vision-hub
 [Docs]: https://github.com/Vision-Software-LLC/Vision-UI/blob/main/Documentation.md
