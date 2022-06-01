@@ -7,7 +7,10 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Visio
 
 ## Creating a Window
 ```lua
-local window = library:CreateWindow()
+local window = library:CreateWindow({
+  ToggleBind = "RightShift",
+  Footer = true
+})
 
 --// Settings for this window will be added later
 ```
@@ -149,8 +152,8 @@ Home:CreateSpacing({
 tab:CreateKeybind({
   Text = "Keybind",
   Default = "F",
-  Callback = function()
-    print("Keybind Clicked")
+  Callback = function(keyDown)
+    print("Keydown: "..tostring(keyDown))
   end
 })
 
@@ -158,7 +161,7 @@ tab:CreateKeybind({
 
 Text = Keybind text/name
 Default = Default key. Currently only a-z binds are accepted. Will be fixed later.
-Callback = The function executed when focus is lost from the textbox (Enter is pressed or user clicks off).
+Callback = The function executed when the keybind is pressed down or let go of.
 
 ]]
 ```
@@ -185,11 +188,11 @@ Callback = The function executed when focus is lost from the textbox (Enter is p
 ## Creating a tab button
 ```lua
 local tabbutton = window:CreateTabButton({
-	Text = "Tab Button",
-	Icon = "rbxassetid://9766676906",
-	Callback = function()
-		-- script here
-	end
+  Text = "Tab Button",
+  Icon = "rbxassetid://9766676906",
+  Callback = function()
+    -- script here
+  end
 })
 
 --[[
@@ -206,5 +209,18 @@ Callback = The function/script executed when you click this tab.
 window:Destroy()
 ```
 
+## Changing the Window Toggle button
+```lua
+window:ChangeToggleBind({
+  NewBind = "RightShift"
+})
 
+--// NewBind = The new toggle window bind. The keyname from Enum.KeyCode.RightShift
+```
+
+## Window toggle alternative
+```lua
+window:Visible(true)
+
+--// Only arg (true) is a bool based on whether or not the window should be visible. true to be visible, false for invisible.
 :heheheha:
