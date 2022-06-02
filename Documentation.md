@@ -9,10 +9,17 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Visio
 ```lua
 local window = library:CreateWindow({
   ToggleBind = "RightShift",
+  SkipAnimation = false,
   Footer = true
 })
 
---// Settings for this window will be added later
+--[[
+
+ToggleBind = Bind for toggling visibiltity of the gui
+SkipAnimation = Skip the startup animation. Sound still plays.
+Footer = Toggle on or off the footer.
+
+]]
 ```
 
 ## Creating a Tab
@@ -75,6 +82,7 @@ Callback = The script/function executed after the toggle is pressed
 ```lua
 tab:CreateSlider({
   Text = "Slider",
+  ValueOnly = "bananas",
   Scale = 1,
   Default = 50,
   Callback = function(value)
@@ -85,6 +93,7 @@ tab:CreateSlider({
 --[[
 
 Text = The slider text
+ValueOnly = Text that appears after shown value. E.g. 50 bananas, or slider is moved, 20 bananas.
 Scale = The range of the slider. 0.1 = 0-10, 1 = 0-100, 2 = 0-100, etc...
 Callback = The script/function executed after the slider value is changed
 
