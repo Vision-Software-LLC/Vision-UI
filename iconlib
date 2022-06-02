@@ -1,0 +1,22 @@
+local icons = {
+	FluentIcons = {
+		Home = "rbxassetid://9792462652",
+		Aimbot = "rbxassetid://9766671041",
+		Visuals = "rbxassetid://9766673555",
+		Player = "rbxassetid://9766672602",
+		Misc = "rbxassetid://9766671943",
+		Settings = "rbxassetid://9766674082",
+		Credits = "rbxassetid://9766675093",
+		Exit = "rbxassetid://9766676906"
+	},
+	FeatherIcons = {
+		Home = "rbxassetid://9792650361",
+		Aimbot = "rbxassetid://9792632523",
+		Visuals = "rbxassetid://9792631281",
+		Player = "rbxassetid://9792631906",
+		Misc = "rbxassetid://9792634811",
+		Settings = "rbxassetid://9792633222",
+		Credits = "rbxassetid://9792634075",
+		Exit = "rbxassetid://9792635572"
+	}
+}
