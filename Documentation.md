@@ -233,3 +233,32 @@ window:Visible(true)
 
 --// Only arg (true) is a bool based on whether or not the window should be visible. true to be visible, false for invisible.
 :heheheha:
+```
+
+## Built in icons
+```lua
+icons = getgenv().icons
+--[[
+
+The only current icons are as follows:
+icons.FluentIcons
+icons.FeatherIcons
+
+Fluent and FeatherIcons are different styles. The tab icons we actually have are:
+
+Home,
+Aimbot,
+Visuals,
+Player,
+Misc,
+Settings,
+Credits,
+Exit
+]]
+
+-- Usage:
+
+RandomImageLabel.Image = icons.FluentIcons.Settings
+-- or
+RandomImageLabel.Image = icons.FeatherIcons.Settings
+```
