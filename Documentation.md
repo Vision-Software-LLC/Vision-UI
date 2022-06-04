@@ -254,6 +254,7 @@ Misc,
 Settings,
 Credits,
 Exit
+
 ]]
 
 -- Usage:
