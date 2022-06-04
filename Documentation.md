@@ -9,14 +9,14 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Visio
 ```lua
 local window = library:CreateWindow({
   ToggleBind = "RightShift",
-  SkipAnimation = false,
+  SkipStartup = false,
   Footer = true
 })
 
 --[[
 
 ToggleBind = Bind for toggling visibiltity of the gui
-SkipAnimation = Skip the startup animation. Sound still plays.
+SkipStartup = Skip the startup animation. Sound still plays.
 Footer = Toggle on or off the footer.
 
 ]]
