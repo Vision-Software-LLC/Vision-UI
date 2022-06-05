@@ -104,6 +104,7 @@ Callback = The script/function executed after the slider value is changed
 ```lua
 tab:CreateDropdown({
   Text = "Dropdown",
+  MultiSelect = false,
   Selections = {"Option 1", "Option 2", "Option 3"},
   Default = 1, -- Index of default selection
   Callback = function(option)
@@ -114,8 +115,12 @@ tab:CreateDropdown({
 --[[
 
 Text = The dropdown text
+MultiSelect = Give the user the ability to select multiple items in the dropdown. Returns a table of selected values.
+
+-- ONLY WITH MULTISELECT ENABLED : Default can be set to a table (eg. {1,2,5} ) of the default indexes of your selection.
+
 Selection = The available options/selections for the user to choose from displayed in the dropdown.
-Default = The default selection. Uses index values, 1 = option 1, 2 = option 2, etc...
+Default = The default selection. Uses index values, 1 = option 1, 2 = option 2, etc... Set this to 0 for no default selection.
 Callback = The script/function executed after the dropdown selection is changed
 
 ]]
