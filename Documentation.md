@@ -7,14 +7,25 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Visio
 
 ## Creating a Window
 ```lua
-local window = library:CreateWindow({
-  ToggleBind = "RightShift",
-  SkipStartup = false,
-  Footer = true
+local window = Library:CreateWindow({
+	PrimaryColor = Color3.fromRGB(35, 35, 35), -- Defualt is 35, 35, 35
+	SecondaryColor = Color3.fromRGB(40, 40, 40), -- Defualt is 40, 40, 40
+	FooterColor = Color3.fromRGB(45, 45, 45), -- Defualt is 45, 45, 45
+	Title = "Vision UI", -- Defualt is "Vision UI"
+	TitleSize = 16, -- Defualt is 16
+	
+	ToggleBind = "RightShift", -- Enum.KeyCode.RightShift (Just put in key of keycode)
+	SkipStartup = false,
+	Footer = true
 })
 
 --[[
 
+PrimaryColor = The default primarycolor (UI Background)
+SecondaryColor = The default secondarycolor (Button Backgrounds)
+FooterColor = The default color of the footer.
+Title = The title of your ui
+TitleSize = The fontsize of the title
 ToggleBind = Bind for toggling visibiltity of the gui
 SkipStartup = Skip the startup animation. Sound still plays.
 Footer = Toggle on or off the footer.
