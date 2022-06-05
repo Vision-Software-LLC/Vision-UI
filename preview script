@@ -1,0 +1,174 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Vision-Software-LLC/Vision-UI/main/source"))()
+
+local icons = Library:Icons()
+
+local window = Library:CreateWindow({
+	ToggleBind = "RightShift",
+	SkipStartup = false,
+	Footer = true
+})
+local Home = window:CreateTab({
+	Text = "Home",
+	Icon = icons.FluentIcons.Home,
+	CanvasSize = 2,
+	Default = true
+}) -- Text, Icon, CanvasSize, Default
+Home:CreateLabel({
+	Text = "//   Vision UI Demo   //",
+}) -- Text
+Home:CreateButton({
+	Text = "Home",
+	Callback = function()
+		print("Home Button Clicked")
+	end
+}) -- Text, callback
+Home:CreateSlider({
+	Text = "Slider",
+	ValueName = "stud/s",
+	Scale = 1,
+	Default = 50,
+	Callback = function(value)
+		print("Slider Value: " .. value)
+	end
+}) -- Text, callback, scale, default
+Home:CreateKeybind({
+	Text = "Keybind",
+	Default = "F",
+	Callback = function(held,keycode)
+		print("Keybind Held: "..tostring(keyDown))
+	end
+}) -- Text, key, callback
+Home:CreateColorPicker({
+	Text = "Color Picker",
+	Default = Color3.fromRGB(2, 255, 255),
+	Callback = function(color)
+		print("HSV: "..tostring(color)) -- For rgb just multiply by 255
+	end
+}) -- Text, default, callback
+
+Home:CreateSpacing({
+	Size = 2, -- 1 = 1 buttons size of spacing, 2 = 2 buttons size of spacing, etc.
+}) -- Size
+
+Home:CreateInput({
+	Text = "Input",
+	ValueOnly = true,
+	Callback = function(input)
+		print("Input: "..input)
+	end
+}) -- Text, ValueOnly, callback
+Home:CreateToggle({
+	Text = "Toggle",
+	Default = false,
+	Callback = function(state)
+		print("Toggle: "..tostring(state))
+	end
+}) -- Text, default, callback
+Home:CreateDropdown({
+	Text = "Dropdown",
+	MultiSelect = false,
+	Selections = {"Option", "Option 2", "Option 3"},
+	Default = 0,
+	Callback = function(selection)
+		print("Dropdown: "..selection)
+	end
+})
+
+Home:CreateDropdown({
+	Text = "Multi-Select Dropdown",
+	MultiSelect = true,
+	Selections = {"Option 1", "Option 2", "Option 3"},
+	Default = {1,3},
+	Callback = function(selection)
+		print("\n\nSelection Table:")
+		for i,v in pairs(selection) do
+			print(v)
+		end
+	end
+})
+
+
+
+
+
+
+
+
+
+
+
+local Aimbot = window:CreateTab({
+	Text = "Aimbot",
+	Icon = icons.FluentIcons.Aimbot,
+	Default = false
+})
+Aimbot:CreateButton({
+	Text = "Aimbot",
+	Callback = function()
+		print("Aimbot Button Clicked")
+	end
+})
+
+local Visuals = window:CreateTab({
+	Text = "Visuals",
+	Icon = icons.FluentIcons.Visuals,
+	Default = false
+})
+Visuals:CreateButton({
+	Text = "Visuals",
+	Callback = function()
+		print("Visuals Button Clicked")
+	end
+})
+
+local Player = window:CreateTab({
+	Text = "Player",
+	Icon = icons.FluentIcons.Player,
+	Default = false
+})
+Player:CreateButton({
+	Text = "Player",
+	Callback = function()
+		print("Player Button Clicked")
+	end
+})
+
+local Misc = window:CreateTab({
+	Text = "Misc",
+	Icon = icons.FluentIcons.Misc,
+	Default = false
+})
+Misc:CreateButton({
+	Text = "Misc",
+	Callback = function()
+		print("Misc Button Clicked")
+	end
+})
+
+local Settings = window:CreateTab({
+	Text = "Settings",
+	Icon = icons.FluentIcons.Settings,
+	Default = false
+})
+Settings:CreateButton({
+	Text = "Settings",
+	Callback = function()
+		print("Settings Button Clicked")
+	end
+})
+
+for i=1,12 do
+	window:CreateSpacing() -- lol
+end
+
+local Credits = window:CreateTab({
+	Text = "Credits",
+	Icon = icons.FluentIcons.Credits,
+	Default = false
+})
+Credits:CreateButton({
+	Text = "Credits",
+	Callback = function()
+		print("Credits Button Clicked")
+	end
+})
