@@ -3,8 +3,14 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Visio
 local icons = Library:Icons()
 
 local window = Library:CreateWindow({
-	ToggleBind = "RightShift",
-	SkipStartup = false,
+	PrimaryColor = Color3.fromRGB(35, 35, 35), -- Defualt is 35, 35, 35
+	SecondaryColor = Color3.fromRGB(40, 40, 40), -- Defualt is 40, 40, 40
+	FooterColor = Color3.fromRGB(45, 45, 45), -- Defualt is 45, 45, 45
+	Title = "Vision UI", -- Defualt is "Vision UI"
+	TitleSize = 16, -- Defualt is 16
+
+	ToggleBind = "RightShift", -- Enum.KeyCode.RightShift (Just put in key of keycode)
+	SkipStartup = true,
 	Footer = true
 })
 local Home = window:CreateTab({
@@ -13,9 +19,6 @@ local Home = window:CreateTab({
 	CanvasSize = 2,
 	Default = true
 }) -- Text, Icon, CanvasSize, Default
-Home:CreateLabel({
-	Text = "//   Vision UI Demo   //",
-}) -- Text
 Home:CreateButton({
 	Text = "Home",
 	Callback = function()
@@ -45,9 +48,12 @@ Home:CreateColorPicker({
 		print("HSV: "..tostring(color)) -- For rgb just multiply by 255
 	end
 }) -- Text, default, callback
+Home:CreateLabel({
+	Text = "Label Example: Spacing Below",
+}) -- Text
 
 Home:CreateSpacing({
-	Size = 2, -- 1 = 1 buttons size of spacing, 2 = 2 buttons size of spacing, etc.
+	Size = 1, -- 1 = 1 buttons size of spacing, 2 = 2 buttons size of spacing, etc.
 }) -- Size
 
 Home:CreateInput({
@@ -67,7 +73,7 @@ Home:CreateToggle({
 Home:CreateDropdown({
 	Text = "Dropdown",
 	MultiSelect = false,
-	Selections = {"Option", "Option 2", "Option 3"},
+	Selections = {"Option 1", "Option 2", "Option 3"},
 	Default = 0,
 	Callback = function(selection)
 		print("Dropdown: "..selection)
@@ -145,30 +151,20 @@ Misc:CreateButton({
 	end
 })
 
-local Settings = window:CreateTab({
-	Text = "Settings",
-	Icon = icons.FluentIcons.Settings,
-	Default = false
-})
-Settings:CreateButton({
-	Text = "Settings",
-	Callback = function()
-		print("Settings Button Clicked")
-	end
-})
-
-for i=1,12 do
+for i=1,13 do
 	window:CreateSpacing() -- lol
 end
 
-local Credits = window:CreateTab({
-	Text = "Credits",
-	Icon = icons.FluentIcons.Credits,
-	Default = false
-})
-Credits:CreateButton({
-	Text = "Credits",
-	Callback = function()
-		print("Credits Button Clicked")
-	end
+window:SettingsTab({
+	Visible = true,
+	Text = "Settings",
+	Icon = icons.FluentIcons.Settings,
+	EnabledSettings = {
+		PrimaryColor = true,
+		SecondaryColor = true,
+		FooterColor = true,
+		ButtonBorderColor = true,
+		TextColor = true,
+		CheckboxColor = true
+	}
 })
