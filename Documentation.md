@@ -269,3 +269,51 @@ RandomImageLabel.Image = icons.FluentIcons.Settings
 -- or
 RandomImageLabel.Image = icons.FeatherIcons.Settings
 ```
+
+## Built in Settings Tab
+```lua
+window:SettingsTab({
+	Visible = true,
+	Text = "Settings",
+	Icon = icons.FluentIcons.Settings,
+	EnabledSettings = {
+		PrimaryColor = true,
+		SecondaryColor = true,
+		FooterColor = true,
+		ButtonBorderColor = true,
+		TextColor = true,
+		CheckboxColor = true
+	}
+})
+
+--[[
+
+Visible = The Setting Tabs Visibility. True by default
+Text = Name/Text of the tab
+Icon = Icon of the tab
+EnabledSettings = The settings/color pickers that will be shown in the settings tab. Button to reset all colors to default will always be included.
+
+]]
+```
+
+## Settings Colors
+```lua
+window:SetColor(object,color)
+
+--[[
+
+object = The object that you wish to change color. See below for all possible objects.
+color = The color that you wish for the object to be.
+
+]]
+
+```
+## Possible Objects for SetColor
+```lua
+PrimaryColor
+SecondaryColor
+FooterColor
+ButtonBorderColor
+TextColor
+CheckboxColor
+```
