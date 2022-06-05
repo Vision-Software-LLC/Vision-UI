@@ -161,8 +161,9 @@ Home:CreateSpacing({
 tab:CreateKeybind({
   Text = "Keybind",
   Default = "F",
-  Callback = function(keyDown)
-    print("Keydown: "..tostring(keyDown))
+  Callback = function(held,keycode)
+    print("Keydown: "..tostring(held))
+    print("Keycode: "..tostring(keycode))
   end
 })
 
@@ -170,7 +171,7 @@ tab:CreateKeybind({
 
 Text = Keybind text/name
 Default = Default key. Currently only a-z binds are accepted. Will be fixed later.
-Callback = The function executed when the keybind is pressed down or let go of.
+Callback = The function executed when the keybind is pressed down or let go of. Returns 2 arguments : held and keycode. Held is the status of the key and keycode is the keys keycode. Both returned each time the set key is pressed down or let go of.
 
 ]]
 ```
@@ -237,7 +238,7 @@ window:Visible(true)
 
 ## Built in icons
 ```lua
-icons = getgenv().icons
+local icons = Library:Icons()
 --[[
 
 The only current icons are as follows:
