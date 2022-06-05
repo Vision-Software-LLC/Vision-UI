@@ -7,7 +7,7 @@
 
 ## Preview
 
-<img align="center" alt="Preview" src="https://i.imgur.com/TIrOFjP.png" />
+<img align="center" alt="Preview" src="https://i.imgur.com/4SNGQAK.png" />
 
 
 
