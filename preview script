@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Vision-Software-LLC/Vision-UI/main/source"))()
+local Library = loadstring(readfile("Vision.lua"))()
 
 local icons = Library:Icons()
 
@@ -38,7 +38,7 @@ Home:CreateKeybind({
 	Text = "Keybind",
 	Default = "F",
 	Callback = function(held,keycode)
-		print("Keybind Held: "..tostring(keyDown))
+		print("Keybind Held: "..tostring(held))
 	end
 }) -- Text, key, callback
 Home:CreateColorPicker({
@@ -157,6 +157,7 @@ end
 
 window:SettingsTab({
 	Visible = true,
+	CanvasSize = 2,
 	Text = "Settings",
 	Icon = icons.FluentIcons.Settings,
 	EnabledSettings = {
@@ -165,6 +166,23 @@ window:SettingsTab({
 		FooterColor = true,
 		ButtonBorderColor = true,
 		TextColor = true,
-		CheckboxColor = true
+		CheckboxColor = true,
+		SelectorColor = true,
+		SliderPrimaryColor = true,
+		SliderBackgroundColor = true
 	}
+})
+
+SettingsTab:CreateLabel({
+	Text = "Settings Tab Custom Labels and Buttons Example",
+})
+
+SettingsTab:CreateKeybind({
+	Text = "Toggle GUI Keybind",
+	Default = "RightShift",
+	Callback = function(held,keycode)
+		window:ChangeToggleBind({
+			NewBind = string.split(tostring(keycode),".")[3]
+		})
+	end
 })
