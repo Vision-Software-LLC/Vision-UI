@@ -293,7 +293,10 @@ window:SettingsTab({
 		FooterColor = true,
 		ButtonBorderColor = true,
 		TextColor = true,
-		CheckboxColor = true
+		CheckboxColor = true,
+		SelectorColor = true,
+		SliderPrimaryColor = true,
+		SliderBackgroundColor = true
 	}
 })
 
@@ -327,4 +330,7 @@ FooterColor
 ButtonBorderColor
 TextColor
 CheckboxColor
+SelectorColor
+SliderPrimaryColor
+SliderBackgroundColor
 ```
