@@ -7,7 +7,14 @@
 
 ## Preview
 
-<img align="center" alt="Preview" src="https://i.imgur.com/2SnomeB.png" />
+## Home Tab Preview
+
+<img align="center" alt="Preview" src="https://i.imgur.com/hZoQAS8.png" />
+
+
+## Pre-Built Settings Tab Preview
+
+<img align="center" alt="Preview" src="https://i.imgur.com/k31DsBV.png" />
 
 
 
