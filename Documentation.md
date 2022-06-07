@@ -346,7 +346,7 @@ Library:Notification({
 	Theme = "Custom"
 })
 
--- [[
+--[[
 
 Title = Title of the Notification
 Text = Text of the Notification
