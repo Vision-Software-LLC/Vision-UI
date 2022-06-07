@@ -342,6 +342,15 @@ Library:Notification({
 	Text = "This is a notification",
 	Icon = "rbxassetid://9838878267",
 	Duration = 5,
+	ExecuteButton = {
+		ButtonColor = Color3.fromRGB(174, 172, 179),
+		TextColor = Color3.fromRGB(49, 49, 49),
+		Text = "Execute",
+		XOffset = 0, -- Can be - or +
+		Callback = function()
+			print("Notification Button Pressed")
+		end
+	},
 	
 	Theme = "Custom"
 })
@@ -352,6 +361,15 @@ Title = Title of the Notification
 Text = Text of the Notification
 Icon = Icon of the Notification
 Duration = Max amount of time the Notification will be shown on the screen
+
+ExecuteButton = { Only needed if you wish for your notification to have an extra button for executing a script
+	ButtonColor = Color of the notification execute button
+	TextColor = Color of the notification execute buttons text
+	Text = The text of the notification execute button
+	XOffset = A custom XOffset for changing the X position of the notification execute button
+	Callback = The function executed after the notification execute button is pressed
+}
+
 Theme = The theme of the Notificaion.
 
 Notification Themes:
