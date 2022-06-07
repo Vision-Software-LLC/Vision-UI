@@ -18,5 +18,12 @@ local icons = {
 		Settings = "rbxassetid://9792633222",
 		Credits = "rbxassetid://9792634075",
 		Exit = "rbxassetid://9792635572"
+	},
+	NotificationIcons = {
+		Success = "rbxassetid://9838874163",
+		Warning = "rbxassetid://9838873385",
+		Error = "rbxassetid://9838876113",
+		Informational = "rbxassetid://9838877673",
+		Custom = "rbxassetid://9838878267"
 	}
 }
