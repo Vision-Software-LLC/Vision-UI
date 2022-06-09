@@ -9,7 +9,7 @@
 
 ## Home Tab Preview
 
-<img align="center" alt="Preview" src="https://i.imgur.com/hZoQAS8.png" />
+<img align="center" alt="Preview" src="https://i.imgur.com/rhxDw5H.png" />
 
 
 ## Pre-Built Settings Tab Preview
