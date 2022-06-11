@@ -13,6 +13,8 @@ local window = Library:CreateWindow({
 	SkipStartup = true,
 	Footer = true
 })
+
+
 local Home = window:CreateTab({
 	Text = "Home",
 	Icon = icons.FluentIcons.Home,
@@ -23,90 +25,20 @@ local Home = window:CreateTab({
 Home:CreateButton({
 	Text = "Cycle/Create Notifications",
 	Callback = function()
-		while wait() do
-			Library:Notification({
-				Title = "Vision Lib Example",
-				Text = "This is a notification",
-				Icon = icons.NotificationIcons.Success,
-				Duration = 5,
-			
-				Theme = "Success"	
-					--"Success"
-					--"Warning"
-					--"Error"
-					--"Information"
-					--"Custom"
-			})
-			wait(0.75)
-			Library:Notification({
-				Title = "Vision Lib Example",
-				Text = "This is a notification",
-				Icon = icons.NotificationIcons.Warning,
-				Duration = 5,
-			
-				Theme = "Warning"	
-					--"Success"
-					--"Warning"
-					--"Error"
-					--"Information"
-					
-					--"Custom"
-			})
-			wait(0.75)
-			Library:Notification({
-				Title = "Vision Lib Example",
-				Text = "This is a notification",
-				Icon = icons.NotificationIcons.Error,
-				Duration = 5,
-			
-				Theme = "Error"	
-					--"Success"
-					--"Warning"
-					--"Error"
-					--"Information"
-					--"Custom"
-			})
-			wait(0.75)
-			Library:Notification({
-				Title = "Vision Lib Example",
-				Text = "This is a notification",
-				Icon = icons.NotificationIcons.Information,
-				Duration = 5,
-			
-				Theme = "Information"	
-					--"Success"
-					--"Warning"
-					--"Error"
-					--"Information"
-					--"Custom"
-			})
-			wait(0.75)
-			Library:Notification({
-				Title = "Vision Lib Example",
-				Text = "This is a notification",
-				Icon = icons.NotificationIcons.Custom,
-				Duration = 5,
-				--MainColor = Color3.fromRGB(255, 255, 255),
-				--SideColor = Color3.fromRGB(255, 255, 255),
-				--TitleColor = Color3.fromRGB(255, 255, 255),
-				--TextColor = Color3.fromRGB(255, 255, 255),
-				--IconColor = Color3.fromRGB(255, 255, 255),
-				Theme = "Custom"
-					--"Success"
-					--"Warning"
-					--"Error"
-					--"Information"
-					--"Custom"
-			})
-			break
-		end
+		Library:Notification({
+			Text = "Hello number",
+			ShowIndex = true
+		})
 	end
 }) -- Text, callback
 Home:CreateSlider({
 	Text = "Slider",
-	ValueName = "stud/s",
-	Scale = 1,
-	Default = 50,
+	ValueName = "studs/s",
+	Min = 0,
+	Max = 60,
+	Step = 1, -- Increment
+	Default = 16,
+	Round = false,
 	Callback = function(value)
 		print("Slider Value: " .. value)
 	end
@@ -150,7 +82,7 @@ Home:CreateToggle({
 Home:CreateDropdown({
 	Text = "Dropdown",
 	MultiSelect = false,
-	Selections = {"Option 1", "Option 2", "Option 3"},
+	Selections = {"Option 1", "Option 2", "Option"},
 	Default = 0,
 	Callback = function(selection)
 		print("Dropdown: "..selection)
@@ -163,7 +95,7 @@ Home:CreateDropdown({
 	Selections = {"Option 1", "Option 2", "Option 3"},
 	Default = {1,3},
 	Callback = function(selection)
-		print("\n\nSelection Table:")
+		print("Selection Table:")
 		for i,v in pairs(selection) do
 			print(v)
 		end
@@ -190,7 +122,7 @@ Aimbot:CreateButton({
 	Callback = function()
 		print("Aimbot Button Clicked")
 	end
-})
+})	
 
 local Visuals = window:CreateTab({
 	Text = "Visuals",
@@ -209,6 +141,7 @@ local Player = window:CreateTab({
 	Icon = icons.FluentIcons.Player,
 	Default = false
 })
+
 Player:CreateButton({
 	Text = "Player",
 	Callback = function()
@@ -248,7 +181,8 @@ window:SettingsTab({
 		SliderPrimaryColor = true,
 		SliderBackgroundColor = true,
 		InputBoxBackgroundColor = true,
-		DropdownUnselectedColor = true
+		DropdownUnselectedColor = true,
+		SeparatorColor = true
 	}
 })
 
