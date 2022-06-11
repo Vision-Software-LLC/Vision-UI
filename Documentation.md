@@ -8,15 +8,14 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Visio
 ## Creating a Window
 ```lua
 local window = Library:CreateWindow({
-	PrimaryColor = Color3.fromRGB(35, 35, 35), -- Defualt is 35, 35, 35
-	SecondaryColor = Color3.fromRGB(40, 40, 40), -- Defualt is 40, 40, 40
-	FooterColor = Color3.fromRGB(45, 45, 45), -- Defualt is 45, 45, 45
-	Title = "Vision UI", -- Defualt is "Vision UI"
-	TitleSize = 16, -- Defualt is 16
-	
-	ToggleBind = "RightShift", -- Enum.KeyCode.RightShift (Just put in key of keycode)
-	SkipStartup = false,
-	Footer = true
+   PrimaryColor = Color3.fromRGB(35, 35, 35), -- Defualt is 35, 35, 35
+   SecondaryColor = Color3.fromRGB(40, 40, 40), -- Defualt is 40, 40, 40
+   FooterColor = Color3.fromRGB(45, 45, 45), -- Defualt is 45, 45, 45
+   Title = "Vision UI", -- Defualt is "Vision UI"
+   TitleSize = 16, -- Defualt is 16
+   ToggleBind = "RightShift", -- Enum.KeyCode.RightShift (Just put in key of keycode)
+   SkipStartup = false,
+   Footer = true
 })
 
 --[[
@@ -36,10 +35,10 @@ Footer = Toggle on or off the footer.
 ## Creating a Tab
 ```lua
 local tab = window:CreateTab({
-  Text = "Tab",
-  Icon = "rbxassetid://7104816810",
-  CanvasSize = 2,
-  Default = true
+   Text = "Tab",
+   Icon = "rbxassetid://7104816810",
+   CanvasSize = 2,
+   Default = true
 })
 
 --[[
@@ -55,10 +54,10 @@ Default = If this is the default tab, set this to true.
 ## Creating a Button
 ```lua
 tab:CreateButton({
-  Text = "Button",
-  Callback = function()
-    -- Script here
-  end
+   Text = "Button",
+   Callback = function()
+      print('Button Pressed!')
+   end
 })
 
 --[[
@@ -72,11 +71,11 @@ Callback = The script/function executed after the button is pressed
 ## Creating a Toggle
 ```lua
 tab:CreateToggle({
-  Text = "Toggle",
-  Default = true,
-  Callback = function(state)
-    print("Toggle: "..tostring(state))
-  end
+   Text = "Toggle",
+   Default = true,
+   Callback = function(state)
+      print("Toggle: "..tostring(state))
+   end
 })
 
 --[[
@@ -92,21 +91,28 @@ Callback = The script/function executed after the toggle is pressed
 ## Creating a Slider
 ```lua
 tab:CreateSlider({
-  Text = "Slider",
-  ValueOnly = "bananas",
-  Scale = 1,
-  Default = 50,
-  Callback = function(value)
-    print("Slider Value: " .. value)
-  end
+   Text = "Slider",
+   ValueName = "studs/s",
+   Min = 0,
+   Max = 60,
+   Step = 1, -- Increment
+   Default = 16,
+   Round = false,
+   Callback = function(value)
+      print("Slider Value: " .. value)
+   end
 })
 
 --[[
 
 Text = The slider text
-ValueOnly = Text that appears after shown value. E.g. 50 bananas, or slider is moved, 20 bananas.
-Scale = The range of the slider. 0.1 = 0-10, 1 = 0-100, 2 = 0-100, etc...
-Callback = The script/function executed after the slider value is changed
+ValueName = The values prefix
+Min = Minimum value for the slider
+Max = Maximum value for the slider
+Step = The increment of the slider
+Default = Default slider value
+Round = Bool; True = Do NOT show decimal places. False = Show decimals up to the hundreth place.
+Callback = Function executed every time the slider value/position is changed.
 
 ]]
 ```
@@ -114,13 +120,13 @@ Callback = The script/function executed after the slider value is changed
 ## Creating a Dropdown
 ```lua
 tab:CreateDropdown({
-  Text = "Dropdown",
-  MultiSelect = false,
-  Selections = {"Option 1", "Option 2", "Option 3"},
-  Default = 1, -- Index of default selection
-  Callback = function(option)
-    print("Dropdown: "..option)
-  end
+   Text = "Dropdown",
+   MultiSelect = false,
+   Selections = {"Option 1", "Option 2", "Option 3"},
+   Default = 1, -- Index of default selection
+   Callback = function(option)
+         print("Dropdown: "..option)
+   end
 })
 
 --[[
@@ -140,11 +146,11 @@ Callback = The script/function executed after the dropdown selection is changed
 ## Creating a Colorpicker
 ```lua
 tab:CreateColorPicker({
-  Text = "Color Picker",
-  Default = Color3.fromRGB(255, 255, 255), --// I think I broke this will fix later
-  Callback = function(color)
-    print("HSV: "..tostring(color)) -- For rgb just multiply by 255
-  end
+   Text = "Color Picker",
+   Default = Color3.fromRGB(255, 255, 255), --// I think I broke this will fix later
+   Callback = function(color)
+      print("HSV: "..tostring(color)) -- For rgb just multiply by 255
+   end
 })
 
 --[[
@@ -163,10 +169,17 @@ window:CreateSpacing()
 --// No args available. Support for the size argument will be added later
 ```
 
+## Creating tab separator
+```lua
+window:TabSeparator()
+
+--// No args available.
+```
+
 ## Creating button spacing
 ```lua
 Home:CreateSpacing({
-  Size = 2,
+      Size = 2,
 })
 
 --// Size = Spacing size; 1 = 1 buttons size of spacing, 2 = 2 buttons size of spacing, etc.
@@ -175,12 +188,12 @@ Home:CreateSpacing({
 ## Creating a keybind
 ```lua
 tab:CreateKeybind({
-  Text = "Keybind",
-  Default = "F",
-  Callback = function(held,keycode)
-    print("Keydown: "..tostring(held))
-    print("Keycode: "..tostring(keycode))
-  end
+   Text = "Keybind",
+   Default = "F",
+   Callback = function(held,keycode)
+      print("Keydown: "..tostring(held))
+         print("Keycode: "..tostring(keycode))
+   end
 })
 
 --[[
@@ -195,11 +208,11 @@ Callback = The function executed when the keybind is pressed down or let go of. 
 ## Creating an input box
 ```lua
 tab:CreateInput({
-  Text = "Input",
-  ValueOnly = true,
-  Callback = function(input)
-    print("Input: "..input)
-  end
+   Text = "Input",
+   ValueOnly = true,
+   Callback = function(input)
+         print("Input: "..input)
+   end
 })
 
 --[[
@@ -214,11 +227,11 @@ Callback = The function executed when focus is lost from the textbox (Enter is p
 ## Creating a tab button
 ```lua
 local tabbutton = window:CreateTabButton({
-  Text = "Tab Button",
-  Icon = "rbxassetid://9766676906",
-  Callback = function()
-    -- script here
-  end
+   Text = "Tab Button",
+   Icon = "rbxassetid://9766676906",
+   Callback = function()
+      print('Tab Button Pressed')
+   end
 })
 
 --[[
@@ -238,7 +251,7 @@ window:Destroy()
 ## Changing the Window Toggle button
 ```lua
 window:ChangeToggleBind({
-  NewBind = "RightShift"
+   NewBind = "RightShift"
 })
 
 --// NewBind = The new toggle window bind. The keyname from Enum.KeyCode.RightShift
@@ -249,7 +262,6 @@ window:ChangeToggleBind({
 window:Visible(true)
 
 --// Only arg (true) is a bool based on whether or not the window should be visible. true to be visible, false for invisible.
-:heheheha:
 ```
 
 ## Built in icons
@@ -284,20 +296,23 @@ RandomImageLabel.Image = icons.FeatherIcons.Settings
 ## Built in Settings Tab
 ```lua
 window:SettingsTab({
-	Visible = true,
-	Text = "Settings",
-	Icon = icons.FluentIcons.Settings,
-	EnabledSettings = {
-		PrimaryColor = true,
-		SecondaryColor = true,
-		FooterColor = true,
-		ButtonBorderColor = true,
-		TextColor = true,
-		CheckboxColor = true,
-		SelectorColor = true,
-		SliderPrimaryColor = true,
-		SliderBackgroundColor = true
-	}
+   Visible = true,
+   Text = "Settings",
+   Icon = icons.FluentIcons.Settings,
+   EnabledSettings = {
+      PrimaryColor = true,
+      SecondaryColor = true,
+      FooterColor = true,
+      ButtonBorderColor = true,
+      TextColor = true,
+      CheckboxColor = true,
+      SelectorColor = true,
+      SliderPrimaryColor = true,
+      SliderBackgroundColor = true,
+      InputBoxBackgroundColor = true,
+      DropdownUnselectedColor = true,
+      SeparatorColor = true
+   }
 })
 
 --[[
@@ -333,14 +348,17 @@ CheckboxColor
 SelectorColor
 SliderPrimaryColor
 SliderBackgroundColor
+InputBoxBackgroundColor
+DropdownUnselectedColor
+SeparatorColor
 ```
 
 ## Creating a Notification
 ```lua
 Library:Notification({
-  Text = "Hello number",
-  Icon = "rbxassetid://9856777794",
-  ShowIndex = true
+   Text = "Hello number",
+   Icon = "rbxassetid://9856777794",
+   ShowIndex = true
 })
 
 --[[
