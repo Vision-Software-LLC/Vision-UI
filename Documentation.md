@@ -224,7 +224,7 @@ Callback = The function executed when focus is lost from the textbox (Enter is p
 ]]
 ```
 
-## Creating an input box
+## Creating a label
 ```lua
 tab:CreateLabel({
    Text = "Label Example"
