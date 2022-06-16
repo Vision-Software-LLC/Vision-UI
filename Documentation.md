@@ -209,7 +209,8 @@ Callback = The function executed when the keybind is pressed down or let go of. 
 ```lua
 tab:CreateInput({
    Text = "Input",
-   ValueOnly = true,
+   Default = "Speed"
+   IntOnly = true,
    Callback = function(input)
          print("Input: "..input)
    end
@@ -217,8 +218,9 @@ tab:CreateInput({
 
 --[[
 
-Text = Input box name/text
-ValueOnly = True ~ Only accept values in the input box. False ~ Accept values and letters.
+Text = Input label text
+Default = Input box placeholder text
+IntOnly = True ~ Only accept values in the input box. False ~ Accept values and letters.
 Callback = The function executed when focus is lost from the textbox (Enter is pressed or user clicks off).
 
 ]]
@@ -232,7 +234,7 @@ tab:CreateLabel({
 
 --[[
 
-Text = Label Text
+Text = Label Text (Updates with whatever variable your label text is set to.)
 
 ]]
 ```
