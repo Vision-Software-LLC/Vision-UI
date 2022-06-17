@@ -314,6 +314,7 @@ window:SettingsTab({
    Visible = true,
    Text = "Settings",
    Icon = icons.FluentIcons.Settings,
+   CanvasSize = 2,
    EnabledSettings = {
       PrimaryColor = true,
       SecondaryColor = true,
@@ -335,6 +336,7 @@ window:SettingsTab({
 Visible = The Setting Tabs Visibility. True by default
 Text = Name/Text of the tab
 Icon = Icon of the tab
+CanvasSize = Vertical size of the scrolling frame.
 EnabledSettings = The settings/color pickers that will be shown in the settings tab. Button to reset all colors to default will always be included.
 
 ]]
