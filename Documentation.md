@@ -15,7 +15,10 @@ local window = Library:CreateWindow({
    TitleSize = 16, -- Defualt is 16
    ToggleBind = "RightShift", -- Enum.KeyCode.RightShift (Just put in key of keycode)
    SkipStartup = false,
-   Footer = true
+   Footer = true,
+   Callback = function()
+      print("Vision Closed Fucntion")
+   end
 })
 
 --[[
@@ -28,6 +31,7 @@ TitleSize = The fontsize of the title
 ToggleBind = Bind for toggling visibiltity of the gui
 SkipStartup = Skip the startup animation. Sound still plays.
 Footer = Toggle on or off the footer.
+Callback = Function to execute when the window is destroyed
 
 ]]
 ```
@@ -143,6 +147,16 @@ Callback = The script/function executed after the dropdown selection is changed
 ]]
 ```
 
+## Updating a dropdown selection table
+```lua
+Dropdown:SetTable(table)
+
+--[[
+
+Using this you can update a dropdowns selection table. Can be used for many things such as a players list.
+
+]]
+```
 ## Creating a Colorpicker
 ```lua
 tab:CreateColorPicker({
@@ -235,6 +249,17 @@ tab:CreateLabel({
 --[[
 
 Text = Label Text (Updates with whatever variable your label text is set to.)
+
+]]
+```
+
+## Updating a label
+```lua
+Label:SetText(text)
+
+--[[
+
+Using this you can update a label for many different uses. In the example this is used for an fps counter.
 
 ]]
 ```
@@ -385,3 +410,25 @@ Icon = The notifications icon
 ShowIndex = The visibility of the notifications index. E.g. [1] or [2]
 
 ]]
+```
+## Fetching the Library Version
+```lua
+Library:GetVersion()
+
+--[[
+
+Returns the current library version.
+
+]]
+```
+
+## Comparing the Library Version
+```lua
+Library:CompareVersion()
+
+--[[
+
+Returns true or false if the library is up to date with our github repository. True = up to date. False = not up to date.
+
+]]
+```
