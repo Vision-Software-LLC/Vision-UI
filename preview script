@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Vision-Software-LLC/Vision-UI/main/source"))()
-
+local utils = loadstring(game:HttpGet("https://raw.githubusercontent.com/Vision-Software-LLC/scripts/main/utils/source.lua"))()
 local icons = Library:Icons()
 
 local window = Library:CreateWindow({
@@ -11,7 +11,11 @@ local window = Library:CreateWindow({
 
 	ToggleBind = "RightShift", -- Enum.KeyCode.RightShift (Just put in key of keycode)
 	SkipStartup = true,
-	Footer = true
+	Footer = true,
+
+	Callback = function()
+		print("Window Close Callback")
+	end
 })
 
 
@@ -149,6 +153,46 @@ Player:CreateButton({
 	end
 })
 
+local InfoTab = window:CreateTab({ Text = "Info", Icon = icons.FluentIcons.Credits, CanvasSize = 1, Default = false })
+InfoTab:CreateLabel({
+    Text = "Vision Library Version: " .. Library:GetVersion()
+})
+InfoTab:CreateLabel({ 
+    Text = "Vision Utilities Version: " .. utils.Version 
+})
+InfoTab:CreateLabel({ 
+    Text = "Executor: " .. utils:GetExecutor()
+})
+
+local userDrop = InfoTab:CreateDropdown({ 
+    Text = "User Info", 
+    MultiSelect = false, 
+    Selections = {"t"}, 
+    Default = 1, 
+    Callback = function(t) 
+    
+    end
+})
+
+local PerfInfo = "FPS"
+local perfDrop = InfoTab:CreateDropdown({ 
+    Text = "Perfomance Info", 
+    MultiSelect = false, 
+    Selections = {'FPS', 'Ping', 'Memory Usage'}, 
+    Default = 1, 
+    Callback = function(t) 
+        PerfInfo = t
+    end
+})
+
+local fpsCounter = InfoTab:CreateLabel({
+	Text = 'Average FPS: ' .. utils.Stats.FPS
+})
+
+
+
+
+
 local Misc = window:CreateTab({
 	Text = "Misc",
 	Icon = icons.FluentIcons.Misc,
@@ -161,7 +205,7 @@ Misc:CreateButton({
 	end
 })
 
-for i=1,13 do
+for i=1,12 do
 	window:CreateSpacing() -- lol
 end
 
@@ -201,3 +245,38 @@ SettingsTab:CreateKeybind({
 		})
 	end
 })
+
+local function notify(text, icon, showindex)
+    text = text or "An error has occured:\nPlease report this to the developer."
+    icon = icon or icons.FluentIcons.Credits
+    showindex = showindex or false
+    local notif = Library:Notification({
+        Text = text,
+        Icon = icon,
+        ShowIndex = showindex
+    })
+    return notif
+end
+
+
+utils:Try(function() notify("Vision Successfully Loaded!", icons.NotificationIcons.Success) end, "notify", true)
+
+coroutine.wrap(function()
+    repeat
+        wait()
+        if PerfInfo == "FPS" then
+            fpsCounter:SetText('Average FPS: '..utils.Stats.FPS)
+        elseif PerfInfo == "Ping" then
+            fpsCounter:SetText('Average Ping: '..utils.Stats.Ping)
+        elseif PerfInfo == "Memory Usage" then
+            fpsCounter:SetText('Average Memory Usage: '..utils.Stats.Memory)
+        end
+    until not getgenv().visionlive
+end)()
+
+coroutine.wrap(function()
+    repeat
+        userDrop:SetTable({'Username: ' .. utils.Username, 'Display Name: ' .. utils.Displayname, 'User ID: ' .. utils.UserId, 'Account Age: ' .. utils.Age .. ' day(s)', 'Client Uptime: ' .. utils.Uptime.Formatted},5)
+        wait(1)
+    until not getgenv().visionlive
+end)()
