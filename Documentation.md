@@ -432,3 +432,10 @@ Returns true or false if the library is up to date with our github repository. T
 
 ]]
 ```
+
+## Set Window Close Callback
+```lua
+Library:SetCallback(function() 
+   print('Window Closed')
+end)
+```
