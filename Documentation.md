@@ -149,11 +149,14 @@ Callback = The script/function executed after the dropdown selection is changed
 
 ## Updating a dropdown selection table
 ```lua
-Dropdown:SetTable(table)
+Dropdown:SetTable(table,default)
 
 --[[
 
 Using this you can update a dropdowns selection table. Can be used for many things such as a players list.
+
+Table = The new table. Use your old table if you wish to update current table values
+Default = Index # of the default selection value. This is obsolete if the user has already selected something.
 
 ]]
 ```
