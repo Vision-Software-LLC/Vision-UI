@@ -17,6 +17,9 @@
 # Preview Images
 See preview script [here][Preview]
 
+## Mockup
+<img align="center" alt="Mockup" src = "https://i.vgy.me/2khv7e.png" />
+
 ## Home Tab
 <img align="center" alt="Preview" src="https://i.imgur.com/O9qefKJ.png" />
 
