@@ -160,6 +160,31 @@ Default = Index # of the default selection value. This is obsolete if the user h
 
 ]]
 ```
+## Creating a Nested Dropdown
+```lua
+tab:NestedDropdown({
+   Text = "Nested Dropdown",
+   Selections = {"Option 1", {"Nested Option 1", "Nested Option 2"}, "Option 2"},
+   Default = 1,
+   Callback = function(selection)
+   print("Selection Table:")
+      for i,v in pairs(selection) do
+         print(v)
+      end
+   end
+})
+
+--[[
+
+Text = The dropdown text
+MultiSelect NOT Supported with NestedDropdowns!!!!
+Selection = The available options/selections for the user to choose from displayed in the dropdown.
+Default = The default selection. Uses index values, 1 = option 1, 2 = option 2, etc... Set this to 0 for no default selection.
+Callback = The script/function executed after the dropdown selection is changed
+
+]]
+```
+
 ## Creating a Colorpicker
 ```lua
 tab:CreateColorPicker({
