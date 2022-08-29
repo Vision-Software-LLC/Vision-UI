@@ -1,4 +1,4 @@
-# Vision UI
+# Kallos UI Library
 
 
 ## Documentation
